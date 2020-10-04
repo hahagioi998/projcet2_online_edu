@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.guli.common.Result;
 import com.guli.edu_Service.MyExceptions.MyException;
+import com.guli.edu_Service.Vo.UpdateTeachVo.UpdateTeacherVo;
 import com.guli.edu_Service.Vo.addTeacher.addTeacherVo;
 import com.guli.edu_Service.Vo.queryVo.queryTeacherVo.teacherForThreeConditionVo;
 import com.guli.edu_Service.bean.EduTeacher;
@@ -15,7 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -27,6 +31,7 @@ import java.util.List;
  */
 @RestController
 //@RequestMapping("/teacher")
+@CrossOrigin //解决跨域问题
 public class EduTeacherController {
 
 
@@ -38,25 +43,33 @@ public class EduTeacherController {
     @PostMapping("/updateTeacherById/{id}")
     public Result updateTeacherById(
             @PathVariable String id,
-            @RequestBody addTeacherVo vo
+            @RequestBody UpdateTeacherVo vo
     ) {
         EduTeacher teacher = eduTeacherService.getById(id);
+//        Date gmtCreate = teacher.getGmtCreate();// 将创建时间抽取出来 创建时间不允许修改
+//        System.err.println(gmtCreate);
         System.err.println("传入的Vo+++++++++++++++: " + vo);
         System.err.println("teacher+++++++++++++++: " + teacher);
+
 
         if (teacher == null) {
             return Result.fail();
         }
 
         BeanUtils.copyProperties(vo, teacher);
+        teacher.setGmtModified(new Date()); //创建事件不允许修改 但是要修改更改时间
         System.err.println("经过重新靠背后的teacher+++++++++++++++: " + teacher);
 
-        if (!eduTeacherService.updateById(teacher)) {
+        try {
+            eduTeacherService.updateById(teacher);
+            return Result.ok().data("code",20000);
+        } catch (Exception e) {
+            e.printStackTrace();
             return Result.fail();
         }
 
 
-        return Result.ok();
+
     }
 
 
@@ -67,7 +80,7 @@ public class EduTeacherController {
             @PathVariable String id
     ) {
 
-
+        System.err.println("进入/selectTeacherById/{id} ，id === ： " + id);
         EduTeacher teacher = eduTeacherService.getById(id);
 
         if (teacher == null) {
@@ -90,16 +103,19 @@ public class EduTeacherController {
     }
 
     //    @DeleteMapping("/{id}")
-    @GetMapping("/deleteById/{id}")
-    public boolean deleteById(@PathVariable("id") String id) {
+    @DeleteMapping("/deleteById/{id}")
+    public Result deleteById(@PathVariable("id") String id) {
 
 
         boolean b = eduTeacherService.removeById(id);
 
         System.err.println(("删除结果:=====   " + b));
 
+        if (!b){
+            return Result.fail();
+        }
 
-        return b;
+        return Result.ok();
     }
 
 
@@ -123,10 +139,11 @@ public class EduTeacherController {
 
 
     @PostMapping("/query/{page}/{limit}")   //如果使用requestbody 则前台会传输一json 后台解析为字符串
-    public Result queryTeacher(                //且前台必须要通过post 请求 才能生效
-                                               @PathVariable("page") Long page,
-                                               @PathVariable("limit") Long limit,
-                                               @RequestBody(required = false) teacherForThreeConditionVo vo) {
+    public Result queryTeacher(
+            //且前台必须要通过post 请求 才能生效
+           @PathVariable("page") Long page,
+           @PathVariable("limit") Long limit,
+           @RequestBody(required = false) teacherForThreeConditionVo vo) {
 
         Page<EduTeacher> p = new Page<>(page, limit);
 
@@ -169,6 +186,34 @@ public class EduTeacherController {
 
 //        return Result.fail().message("")
     }
+
+
+//    {"code":20000,"data":{"token":"admin"}}
+
+    @PostMapping("/login")
+    public Result login(){
+
+
+        return Result.ok().data("token","admin");
+    }
+
+
+
+
+
+//{"code":20000,"data":{"roles":["admin"],"name":"admin","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"}}
+
+    @GetMapping("/info")
+    public Result info(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("roles", "[admin]" );
+        map.put("name","admin");
+        map.put("avatar","https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+
+        return Result.ok().data(map);
+    }
+
+
 
 
 }

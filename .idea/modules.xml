@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/parent/guli_edu_Service/guli_edu_Service.iml" filepath="$PROJECT_DIR$/parent/guli_edu_Service/guli_edu_Service.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisplus/mybatisplus.iml" filepath="$PROJECT_DIR$/mybatisplus/mybatisplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent/parent.iml" filepath="$PROJECT_DIR$/parent/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POI/poi.iml" filepath="$PROJECT_DIR$/POI/poi.iml" />
     </modules>
   </component>
 </project>

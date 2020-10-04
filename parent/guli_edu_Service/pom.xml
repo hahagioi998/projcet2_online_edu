@@ -18,7 +18,21 @@
 
     <dependencies>
 
-<!--        依赖common这个公共类-->
+
+        <!--xls-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+
+
+
+        <!--        依赖common这个公共类-->
         <dependency>
             <groupId>com.guli</groupId>
             <artifactId>common</artifactId>

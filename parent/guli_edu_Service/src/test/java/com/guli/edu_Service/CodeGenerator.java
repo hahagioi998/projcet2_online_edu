@@ -9,14 +9,18 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.guli.edu_Service.config.OSSConfig;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author
  * @since 2018/12/13
  */
 public class CodeGenerator {
+
+    @Autowired
+    OSSConfig oss;
 
     @Test
     public void run() {
@@ -67,7 +71,7 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("edu_teacher");
+        strategy.setInclude("edu_course","edu_course_description");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 
@@ -82,5 +86,19 @@ public class CodeGenerator {
 
         // 6、执行
         mpg.execute();
+    }
+
+    @Test
+    public void t2(){
+
+//
+//        System.err.println(oss.getOss());
+//        System.err.println(oss.getEndpoint());
+//        System.err.println(oss.getAccessKeyId());
+//        System.err.println(oss.getAccessKeySecret());
+//        System.err.println(oss.getBucketName());
+//        System.err.println(oss.getBaseUrl());
+
+
     }
 }

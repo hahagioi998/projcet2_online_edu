@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="guli_edu_Service" />
+        <module name="poi" />
         <module name="common" />
         <module name="mybatisplus" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="guli_edu_Service" target="1.8" />
       <module name="mybatisplus" target="1.8" />
       <module name="parent" target="1.8" />
+      <module name="poi" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
