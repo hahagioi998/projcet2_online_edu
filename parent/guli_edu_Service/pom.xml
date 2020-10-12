@@ -18,6 +18,22 @@
 
     <dependencies>
 
+        <!--服务注册-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+
+
+        <!--服务调用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+
+        </dependency>
+
+
 
         <!--xls-->
         <dependency>
@@ -86,7 +102,18 @@
 
     </dependencies>
 
-
+    <!-- 项目打包时会将java目录中的*.xml文件也进行打包 -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
 
 
 

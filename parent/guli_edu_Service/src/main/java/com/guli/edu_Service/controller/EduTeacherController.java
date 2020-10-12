@@ -30,7 +30,9 @@ import java.util.Map;
  * @since 2020-09-29
  */
 @RestController
-//@RequestMapping("/teacher")
+@RequestMapping("/edu_Service/teacher")
+//@RequestMapping("/edu_Service/edu-subject")
+
 @CrossOrigin //解决跨域问题
 public class EduTeacherController {
 

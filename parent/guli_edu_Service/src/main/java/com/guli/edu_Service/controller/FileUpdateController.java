@@ -12,7 +12,8 @@ import java.io.InputStream;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/eduservice/oss")
+@RequestMapping("/edu_Service/oss")
+///edu_Service/
 @CrossOrigin
 public class FileUpdateController {
     @Autowired
@@ -28,7 +29,7 @@ public class FileUpdateController {
 
 
         String originalFilename = file.getOriginalFilename();
-        String name = UUID.randomUUID().toString().replace("-" ,"").substring(0,5) + "_"+ originalFilename;
+        String name = UUID.randomUUID().toString().replace("-" ,"").substring(0,5)+"headImg" + "_"+ originalFilename;
         InputStream inputStream = file.getInputStream();
 
 
@@ -51,6 +52,26 @@ public class FileUpdateController {
 
         o.putObject(ossConfig.getBucketName(), name, inputStream);
         String PicUrl = ossConfig.getBaseUrl()+name;
+//        o.shutdown(); //如果关闭 则需要重新进行bean 的初始化
+
+        System.err.println(PicUrl);
+
+        return Result.ok().data("url" , PicUrl).message("图片上传成功");
+    }
+    @PostMapping("/coverUpload")
+    public Result coverUpload(@RequestParam("file")MultipartFile file) throws Exception{
+
+
+        String originalFilename = file.getOriginalFilename();
+        String name =  UUID.randomUUID().toString().replace("-" ,"").substring(0,5) + "_"+originalFilename;
+        InputStream inputStream = file.getInputStream();
+
+
+        OSS o  = ossConfig.getOss();
+
+        o.putObject(ossConfig.getBucketName(), "coverImg/"+name, inputStream);
+        String PicUrl = ossConfig.getBaseUrl()+"coverImg/"+name;
+        System.err.println(PicUrl);
 //        o.shutdown(); //如果关闭 则需要重新进行bean 的初始化
 
         System.err.println(PicUrl);

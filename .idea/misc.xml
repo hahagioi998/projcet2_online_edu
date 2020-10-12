@@ -6,10 +6,16 @@
         <option value="$PROJECT_DIR$/mybatisplus/pom.xml" />
         <option value="$PROJECT_DIR$/parent/pom.xml" />
         <option value="$PROJECT_DIR$/POI/pom.xml" />
+        <option value="$PROJECT_DIR$/video/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/ekcenter/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/edu-ucService/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/edu_static/pom.xml" />
+        <option value="$PROJECT_DIR$/wx-login/pom.xml" />
+        <option value="$PROJECT_DIR$/edu-gateway/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="false" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

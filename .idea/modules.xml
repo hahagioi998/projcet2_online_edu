@@ -3,10 +3,18 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/parent/common/common.iml" filepath="$PROJECT_DIR$/parent/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-gateway/edu-gateway.iml" filepath="$PROJECT_DIR$/edu-gateway/edu-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent/edu_static/edu_static.iml" filepath="$PROJECT_DIR$/parent/edu_static/edu_static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent/ekcenter/ekcenter.iml" filepath="$PROJECT_DIR$/parent/ekcenter/ekcenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent/guli_edu_Service/guli_edu_Service.iml" filepath="$PROJECT_DIR$/parent/guli_edu_Service/guli_edu_Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent/guli_video/guli_video.iml" filepath="$PROJECT_DIR$/parent/guli_video/guli_video.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisplus/mybatisplus.iml" filepath="$PROJECT_DIR$/mybatisplus/mybatisplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/parent/parent.iml" filepath="$PROJECT_DIR$/parent/parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/POI/poi.iml" filepath="$PROJECT_DIR$/POI/poi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent/edu-ucService/static_service.iml" filepath="$PROJECT_DIR$/parent/edu-ucService/static_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent/edu-ucService/ucservice.iml" filepath="$PROJECT_DIR$/parent/edu-ucService/ucservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/video/video.iml" filepath="$PROJECT_DIR$/video/video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-login/wx-login.iml" filepath="$PROJECT_DIR$/wx-login/wx-login.iml" />
     </modules>
   </component>
 </project>

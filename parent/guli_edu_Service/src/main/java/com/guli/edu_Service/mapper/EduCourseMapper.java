@@ -1,5 +1,7 @@
 package com.guli.edu_Service.mapper;
 
+import com.guli.edu_Service.Vo.AllCourseInfo.CourseWebVo;
+import com.guli.edu_Service.Vo.AllCourseInfo.allCourseInfo;
 import com.guli.edu_Service.bean.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -13,4 +15,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
+    allCourseInfo publishCourseInfo(String id);
+
+    CourseWebVo selectInfoWebById(String id);
 }
