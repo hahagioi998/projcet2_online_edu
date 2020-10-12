@@ -20,8 +20,8 @@ public class test {
     @Test
     public void testGetVideoPlayAuth() throws ClientException {
 
-        String accessKeyId = "LTAIq6nIPY09VROj";
-        String accessKeySecret = "FQ7UcixT9wEqMv9F35nORPqKr8XkTF";
+        String accessKeyId = "";
+        String accessKeySecret = "";
 
 
         //初始化客户端、请求对象和相应对象
@@ -54,8 +54,8 @@ public class test {
     @Test
     public void testUploadVideo(){
 
-        String accessKeyId = "LTAI4G6AToU9k3sP37CcnfjN";
-        String accessKeySecret = "Ak9g2UaGgGigHreJ2kKgKhhxQB7Uf6";
+        String accessKeyId = "";
+        String accessKeySecret = "";
         String title = "Move Faster";
         String fileName = "D:/Move Faster.mp4";
         //1.音视频上传-本地文件上传
